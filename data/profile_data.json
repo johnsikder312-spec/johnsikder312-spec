@@ -1,0 +1,84 @@
+{
+  "username": "johnsikder312-spec",
+  "name": "John Sikder",
+  "role": "Full-Stack Engineer & AI Systems Architect",
+  "bio": "Building resilient distributed systems, agentic AI workflows, and modern web applications.",
+  "location": "Global / Remote",
+  "status": "\ud83d\udfe2 Available for high-impact engineering & open-source collaboration",
+  "host": "GitHub Profile Matrix v2.4 (x86_64)",
+  "uptime": "99.99% in flow state",
+  "shell": "zsh / fish / bash (Antigravity v2)",
+  "terminal": "wezterm / tmux / alacritty",
+  "editor": "VS Code / Neovim / Antigravity",
+  "stats": {
+    "languages": [
+      "Python",
+      "TypeScript",
+      "Go",
+      "Rust",
+      "C++",
+      "SQL"
+    ],
+    "frameworks": [
+      "React",
+      "Next.js",
+      "Node.js",
+      "FastAPI",
+      "TailwindCSS"
+    ],
+    "cloud_devops": [
+      "Google Cloud",
+      "AWS",
+      "Docker",
+      "Kubernetes",
+      "GitHub Actions",
+      "Terraform"
+    ],
+    "specialties": [
+      "Agentic AI Workflows",
+      "Distributed Systems",
+      "High-Performance APIs",
+      "Data Pipelines"
+    ]
+  },
+  "featured_projects": [
+    {
+      "name": "agentic-matrix",
+      "description": "Autonomous multi-agent orchestration framework with real-time tool calling and reactive memory.",
+      "tech": [
+        "Python",
+        "AsyncIO",
+        "FastAPI",
+        "WebSockets"
+      ],
+      "stars": "\u2b50 Fast & Resilient"
+    },
+    {
+      "name": "cloud-mesh-engine",
+      "description": "Cloud-native microservices mesh with zero-trust telemetry and automated canary deployments.",
+      "tech": [
+        "Go",
+        "Kubernetes",
+        "gRPC",
+        "Docker"
+      ],
+      "stars": "\ud83d\ude80 Production Grade"
+    },
+    {
+      "name": "quantum-ui-kit",
+      "description": "Ultra-fast headless design system with glassmorphism, fluid typography, and sub-millisecond interaction.",
+      "tech": [
+        "TypeScript",
+        "React",
+        "TailwindCSS",
+        "Vite"
+      ],
+      "stars": "\u2728 Modern DX"
+    }
+  ],
+  "socials": {
+    "github": "https://github.com/johnsikder312-spec",
+    "email": "mailto:contact@johnsikder.dev",
+    "website": "https://github.com/johnsikder312-spec"
+  }
+}

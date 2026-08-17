@@ -1,0 +1,1313 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 230" width="880" height="230" style="background: transparent;">
+  <defs>
+    <linearGradient id="heatBorderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#30363d" />
+      <stop offset="50%" stop-color="#238636" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#30363d" />
+    </linearGradient>
+    <linearGradient id="heatHeaderGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#161b22" />
+      <stop offset="100%" stop-color="#0d1117" />
+    </linearGradient>
+  </defs>
+
+  <style>
+    .terminal-bg {
+      fill: #0d1117;
+      stroke: #30363d;
+      stroke-width: 1.2px;
+      rx: 10px;
+    }
+    .terminal-header {
+      fill: url(#heatHeaderGrad);
+      stroke: #30363d;
+      stroke-width: 1px;
+    }
+    .dot-red { fill: #ff5f56; }
+    .dot-yellow { fill: #ffbd2e; }
+    .dot-green { fill: #27c93f; }
+
+    .title-text {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      fill: #8b949e;
+      letter-spacing: 0.3px;
+    }
+
+    .axis-label {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
+      font-size: 10px;
+      fill: #7d8590;
+      font-weight: 500;
+    }
+
+    .legend-text {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
+      font-size: 10px;
+      fill: #7d8590;
+      font-weight: 500;
+    }
+
+    .stat-pill {
+      font-family: 'Fira Code', 'Cascadia Code', 'JetBrains Mono', 'Consolas', monospace;
+      font-size: 10.5px;
+      font-weight: 600;
+    }
+
+    @keyframes cellPop {
+      0% {
+        opacity: 0;
+        transform: scale(0.6);
+      }
+      70% {
+        transform: scale(1.1);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .cal-cell {
+      opacity: 0;
+      animation: cellPop 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      transform-box: fill-box;
+      transform-origin: center;
+      transition: transform 0.15s ease, stroke-width 0.15s ease;
+    }
+
+    .cal-cell:hover {
+      transform: scale(1.35);
+      stroke: #ffffff !important;
+      stroke-width: 1.5px !important;
+      cursor: pointer;
+    }
+
+    @keyframes activePulse {
+      0%, 100% { filter: drop-shadow(0 0 0px #39d353); }
+      50% { filter: drop-shadow(0 0 2.5px #39d353); }
+    }
+
+    .cell-active {
+      animation: cellPop 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards, activePulse 3s infinite ease-in-out 1.2s;
+    }
+
+    .col-0 { animation-delay: 0.000s; }
+    .col-1 { animation-delay: 0.015s; }
+    .col-2 { animation-delay: 0.030s; }
+    .col-3 { animation-delay: 0.045s; }
+    .col-4 { animation-delay: 0.060s; }
+    .col-5 { animation-delay: 0.075s; }
+    .col-6 { animation-delay: 0.090s; }
+    .col-7 { animation-delay: 0.105s; }
+    .col-8 { animation-delay: 0.120s; }
+    .col-9 { animation-delay: 0.135s; }
+    .col-10 { animation-delay: 0.150s; }
+    .col-11 { animation-delay: 0.165s; }
+    .col-12 { animation-delay: 0.180s; }
+    .col-13 { animation-delay: 0.195s; }
+    .col-14 { animation-delay: 0.210s; }
+    .col-15 { animation-delay: 0.225s; }
+    .col-16 { animation-delay: 0.240s; }
+    .col-17 { animation-delay: 0.255s; }
+    .col-18 { animation-delay: 0.270s; }
+    .col-19 { animation-delay: 0.285s; }
+    .col-20 { animation-delay: 0.300s; }
+    .col-21 { animation-delay: 0.315s; }
+    .col-22 { animation-delay: 0.330s; }
+    .col-23 { animation-delay: 0.345s; }
+    .col-24 { animation-delay: 0.360s; }
+    .col-25 { animation-delay: 0.375s; }
+    .col-26 { animation-delay: 0.390s; }
+    .col-27 { animation-delay: 0.405s; }
+    .col-28 { animation-delay: 0.420s; }
+    .col-29 { animation-delay: 0.435s; }
+    .col-30 { animation-delay: 0.450s; }
+    .col-31 { animation-delay: 0.465s; }
+    .col-32 { animation-delay: 0.480s; }
+    .col-33 { animation-delay: 0.495s; }
+    .col-34 { animation-delay: 0.510s; }
+    .col-35 { animation-delay: 0.525s; }
+    .col-36 { animation-delay: 0.540s; }
+    .col-37 { animation-delay: 0.555s; }
+    .col-38 { animation-delay: 0.570s; }
+    .col-39 { animation-delay: 0.585s; }
+    .col-40 { animation-delay: 0.600s; }
+    .col-41 { animation-delay: 0.615s; }
+    .col-42 { animation-delay: 0.630s; }
+    .col-43 { animation-delay: 0.645s; }
+    .col-44 { animation-delay: 0.660s; }
+    .col-45 { animation-delay: 0.675s; }
+    .col-46 { animation-delay: 0.690s; }
+    .col-47 { animation-delay: 0.705s; }
+    .col-48 { animation-delay: 0.720s; }
+    .col-49 { animation-delay: 0.735s; }
+    .col-50 { animation-delay: 0.750s; }
+    .col-51 { animation-delay: 0.765s; }
+    .col-52 { animation-delay: 0.780s; }
+  </style>
+
+  <!-- Container -->
+  <rect x="1" y="1" width="878" height="228" class="terminal-bg" />
+
+  <!-- Header Bar -->
+  <path d="M 1,11 A 10,10 0 0,1 11,1 L 869,1 A 10,10 0 0,1 879,11 L 879,36 L 1,36 Z" class="terminal-header" />
+  
+  <!-- Window Control Buttons -->
+  <circle cx="18" cy="18" r="5.5" class="dot-red" />
+  <circle cx="34" cy="18" r="5.5" class="dot-yellow" />
+  <circle cx="50" cy="18" r="5.5" class="dot-green" />
+
+  <!-- Title -->
+  <text x="75" y="22" class="title-text">johnsikder312-spec / contribution-heatmap (last 12 months)</text>
+
+  <!-- Live Stats Badges in Top Bar -->
+  <g transform="translate(450, 12)">
+    <!-- Total Contributions -->
+    <rect x="0" y="0" width="130" height="20" rx="4" fill="#238636" fill-opacity="0.2" stroke="#238636" stroke-width="0.8" />
+    <text x="65" y="14" text-anchor="middle" class="stat-pill" fill="#3fb950">Contributions: 13</text>
+
+    <!-- Active Days -->
+    <rect x="138" y="0" width="105" height="20" rx="4" fill="#1f6feb" fill-opacity="0.2" stroke="#1f6feb" stroke-width="0.8" />
+    <text x="190" y="14" text-anchor="middle" class="stat-pill" fill="#58a6ff">Active: 6d</text>
+
+    <!-- Max Streak -->
+    <rect x="251" y="0" width="165" height="20" rx="4" fill="#a371f7" fill-opacity="0.2" stroke="#a371f7" stroke-width="0.8" />
+    <text x="333" y="14" text-anchor="middle" class="stat-pill" fill="#d2a8ff">Max Streak: 2d | Cur: 0d</text>
+  </g>
+
+  <!-- Month Labels -->
+  <text x="84.0" y="78" class="axis-label">Sep</text>
+  <text x="140.0" y="78" class="axis-label">Oct</text>
+  <text x="196.0" y="78" class="axis-label">Nov</text>
+  <text x="266.0" y="78" class="axis-label">Dec</text>
+  <text x="322.0" y="78" class="axis-label">Jan</text>
+  <text x="392.0" y="78" class="axis-label">Feb</text>
+  <text x="448.0" y="78" class="axis-label">Mar</text>
+  <text x="504.0" y="78" class="axis-label">Apr</text>
+  <text x="560.0" y="78" class="axis-label">May</text>
+  <text x="630.0" y="78" class="axis-label">Jun</text>
+  <text x="686.0" y="78" class="axis-label">Jul</text>
+  <text x="742.0" y="78" class="axis-label">Aug</text>
+
+  <!-- Day of Week Labels -->
+  <text x="46" y="108.0" class="axis-label" text-anchor="end">Mon</text>
+  <text x="46" y="136.0" class="axis-label" text-anchor="end">Wed</text>
+  <text x="46" y="164.0" class="axis-label" text-anchor="end">Fri</text>
+
+  <!-- Calendar Grid Cells -->
+  <rect x="56.0" y="86.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-0">
+  <title>No contributions on August 17th.</title>
+</rect>
+  <rect x="56.0" y="100.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-0">
+  <title>No contributions on August 18th.</title>
+</rect>
+  <rect x="56.0" y="114.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-0">
+  <title>No contributions on August 19th.</title>
+</rect>
+  <rect x="56.0" y="128.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-0">
+  <title>No contributions on August 20th.</title>
+</rect>
+  <rect x="56.0" y="142.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-0">
+  <title>No contributions on August 21st.</title>
+</rect>
+  <rect x="56.0" y="156.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-0">
+  <title>No contributions on August 22nd.</title>
+</rect>
+  <rect x="56.0" y="170.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-0">
+  <title>No contributions on August 23rd.</title>
+</rect>
+  <rect x="70.0" y="86.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-1">
+  <title>No contributions on August 24th.</title>
+</rect>
+  <rect x="70.0" y="100.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-1">
+  <title>No contributions on August 25th.</title>
+</rect>
+  <rect x="70.0" y="114.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-1">
+  <title>No contributions on August 26th.</title>
+</rect>
+  <rect x="70.0" y="128.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-1">
+  <title>No contributions on August 27th.</title>
+</rect>
+  <rect x="70.0" y="142.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-1">
+  <title>No contributions on August 28th.</title>
+</rect>
+  <rect x="70.0" y="156.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-1">
+  <title>No contributions on August 29th.</title>
+</rect>
+  <rect x="70.0" y="170.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-1">
+  <title>No contributions on August 30th.</title>
+</rect>
+  <rect x="84.0" y="86.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-2">
+  <title>No contributions on August 31st.</title>
+</rect>
+  <rect x="84.0" y="100.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-2">
+  <title>No contributions on September 1st.</title>
+</rect>
+  <rect x="84.0" y="114.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-2">
+  <title>No contributions on September 2nd.</title>
+</rect>
+  <rect x="84.0" y="128.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-2">
+  <title>No contributions on September 3rd.</title>
+</rect>
+  <rect x="84.0" y="142.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-2">
+  <title>No contributions on September 4th.</title>
+</rect>
+  <rect x="84.0" y="156.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-2">
+  <title>No contributions on September 5th.</title>
+</rect>
+  <rect x="84.0" y="170.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-2">
+  <title>No contributions on September 6th.</title>
+</rect>
+  <rect x="98.0" y="86.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-3">
+  <title>No contributions on September 7th.</title>
+</rect>
+  <rect x="98.0" y="100.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-3">
+  <title>No contributions on September 8th.</title>
+</rect>
+  <rect x="98.0" y="114.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-3">
+  <title>No contributions on September 9th.</title>
+</rect>
+  <rect x="98.0" y="128.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-3">
+  <title>No contributions on September 10th.</title>
+</rect>
+  <rect x="98.0" y="142.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-3">
+  <title>No contributions on September 11th.</title>
+</rect>
+  <rect x="98.0" y="156.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-3">
+  <title>No contributions on September 12th.</title>
+</rect>
+  <rect x="98.0" y="170.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-3">
+  <title>No contributions on September 13th.</title>
+</rect>
+  <rect x="112.0" y="86.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-4">
+  <title>No contributions on September 14th.</title>
+</rect>
+  <rect x="112.0" y="100.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-4">
+  <title>No contributions on September 15th.</title>
+</rect>
+  <rect x="112.0" y="114.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-4">
+  <title>No contributions on September 16th.</title>
+</rect>
+  <rect x="112.0" y="128.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-4">
+  <title>No contributions on September 17th.</title>
+</rect>
+  <rect x="112.0" y="142.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-4">
+  <title>No contributions on September 18th.</title>
+</rect>
+  <rect x="112.0" y="156.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-4">
+  <title>No contributions on September 19th.</title>
+</rect>
+  <rect x="112.0" y="170.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-4">
+  <title>No contributions on September 20th.</title>
+</rect>
+  <rect x="126.0" y="86.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-5">
+  <title>No contributions on September 21st.</title>
+</rect>
+  <rect x="126.0" y="100.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-5">
+  <title>No contributions on September 22nd.</title>
+</rect>
+  <rect x="126.0" y="114.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-5">
+  <title>No contributions on September 23rd.</title>
+</rect>
+  <rect x="126.0" y="128.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-5">
+  <title>No contributions on September 24th.</title>
+</rect>
+  <rect x="126.0" y="142.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-5">
+  <title>No contributions on September 25th.</title>
+</rect>
+  <rect x="126.0" y="156.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-5">
+  <title>No contributions on September 26th.</title>
+</rect>
+  <rect x="126.0" y="170.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-5">
+  <title>No contributions on September 27th.</title>
+</rect>
+  <rect x="140.0" y="86.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-6">
+  <title>No contributions on September 28th.</title>
+</rect>
+  <rect x="140.0" y="100.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-6">
+  <title>No contributions on September 29th.</title>
+</rect>
+  <rect x="140.0" y="114.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-6">
+  <title>No contributions on September 30th.</title>
+</rect>
+  <rect x="140.0" y="128.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-6">
+  <title>No contributions on October 1st.</title>
+</rect>
+  <rect x="140.0" y="142.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-6">
+  <title>No contributions on October 2nd.</title>
+</rect>
+  <rect x="140.0" y="156.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-6">
+  <title>No contributions on October 3rd.</title>
+</rect>
+  <rect x="140.0" y="170.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-6">
+  <title>No contributions on October 4th.</title>
+</rect>
+  <rect x="154.0" y="86.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-7">
+  <title>No contributions on October 5th.</title>
+</rect>
+  <rect x="154.0" y="100.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-7">
+  <title>No contributions on October 6th.</title>
+</rect>
+  <rect x="154.0" y="114.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-7">
+  <title>No contributions on October 7th.</title>
+</rect>
+  <rect x="154.0" y="128.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-7">
+  <title>No contributions on October 8th.</title>
+</rect>
+  <rect x="154.0" y="142.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-7">
+  <title>No contributions on October 9th.</title>
+</rect>
+  <rect x="154.0" y="156.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-7">
+  <title>No contributions on October 10th.</title>
+</rect>
+  <rect x="154.0" y="170.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-7">
+  <title>No contributions on October 11th.</title>
+</rect>
+  <rect x="168.0" y="86.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-8">
+  <title>No contributions on October 12th.</title>
+</rect>
+  <rect x="168.0" y="100.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-8">
+  <title>No contributions on October 13th.</title>
+</rect>
+  <rect x="168.0" y="114.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-8">
+  <title>No contributions on October 14th.</title>
+</rect>
+  <rect x="168.0" y="128.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-8">
+  <title>No contributions on October 15th.</title>
+</rect>
+  <rect x="168.0" y="142.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-8">
+  <title>No contributions on October 16th.</title>
+</rect>
+  <rect x="168.0" y="156.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-8">
+  <title>No contributions on October 17th.</title>
+</rect>
+  <rect x="168.0" y="170.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-8">
+  <title>No contributions on October 18th.</title>
+</rect>
+  <rect x="182.0" y="86.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-9">
+  <title>No contributions on October 19th.</title>
+</rect>
+  <rect x="182.0" y="100.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-9">
+  <title>No contributions on October 20th.</title>
+</rect>
+  <rect x="182.0" y="114.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-9">
+  <title>No contributions on October 21st.</title>
+</rect>
+  <rect x="182.0" y="128.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-9">
+  <title>No contributions on October 22nd.</title>
+</rect>
+  <rect x="182.0" y="142.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-9">
+  <title>No contributions on October 23rd.</title>
+</rect>
+  <rect x="182.0" y="156.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-9">
+  <title>No contributions on October 24th.</title>
+</rect>
+  <rect x="182.0" y="170.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-9">
+  <title>No contributions on October 25th.</title>
+</rect>
+  <rect x="196.0" y="86.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-10">
+  <title>No contributions on October 26th.</title>
+</rect>
+  <rect x="196.0" y="100.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-10">
+  <title>No contributions on October 27th.</title>
+</rect>
+  <rect x="196.0" y="114.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-10">
+  <title>No contributions on October 28th.</title>
+</rect>
+  <rect x="196.0" y="128.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-10">
+  <title>No contributions on October 29th.</title>
+</rect>
+  <rect x="196.0" y="142.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-10">
+  <title>No contributions on October 30th.</title>
+</rect>
+  <rect x="196.0" y="156.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-10">
+  <title>No contributions on October 31st.</title>
+</rect>
+  <rect x="196.0" y="170.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-10">
+  <title>No contributions on November 1st.</title>
+</rect>
+  <rect x="210.0" y="86.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-11">
+  <title>No contributions on November 2nd.</title>
+</rect>
+  <rect x="210.0" y="100.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-11">
+  <title>No contributions on November 3rd.</title>
+</rect>
+  <rect x="210.0" y="114.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-11">
+  <title>No contributions on November 4th.</title>
+</rect>
+  <rect x="210.0" y="128.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-11">
+  <title>No contributions on November 5th.</title>
+</rect>
+  <rect x="210.0" y="142.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-11">
+  <title>No contributions on November 6th.</title>
+</rect>
+  <rect x="210.0" y="156.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-11">
+  <title>No contributions on November 7th.</title>
+</rect>
+  <rect x="210.0" y="170.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-11">
+  <title>No contributions on November 8th.</title>
+</rect>
+  <rect x="224.0" y="86.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-12">
+  <title>No contributions on November 9th.</title>
+</rect>
+  <rect x="224.0" y="100.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-12">
+  <title>No contributions on November 10th.</title>
+</rect>
+  <rect x="224.0" y="114.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-12">
+  <title>No contributions on November 11th.</title>
+</rect>
+  <rect x="224.0" y="128.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-12">
+  <title>No contributions on November 12th.</title>
+</rect>
+  <rect x="224.0" y="142.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-12">
+  <title>No contributions on November 13th.</title>
+</rect>
+  <rect x="224.0" y="156.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-12">
+  <title>No contributions on November 14th.</title>
+</rect>
+  <rect x="224.0" y="170.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-12">
+  <title>No contributions on November 15th.</title>
+</rect>
+  <rect x="238.0" y="86.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-13">
+  <title>No contributions on November 16th.</title>
+</rect>
+  <rect x="238.0" y="100.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-13">
+  <title>No contributions on November 17th.</title>
+</rect>
+  <rect x="238.0" y="114.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-13">
+  <title>No contributions on November 18th.</title>
+</rect>
+  <rect x="238.0" y="128.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-13">
+  <title>No contributions on November 19th.</title>
+</rect>
+  <rect x="238.0" y="142.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-13">
+  <title>No contributions on November 20th.</title>
+</rect>
+  <rect x="238.0" y="156.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-13">
+  <title>No contributions on November 21st.</title>
+</rect>
+  <rect x="238.0" y="170.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-13">
+  <title>No contributions on November 22nd.</title>
+</rect>
+  <rect x="252.0" y="86.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-14">
+  <title>No contributions on November 23rd.</title>
+</rect>
+  <rect x="252.0" y="100.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-14">
+  <title>No contributions on November 24th.</title>
+</rect>
+  <rect x="252.0" y="114.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-14">
+  <title>No contributions on November 25th.</title>
+</rect>
+  <rect x="252.0" y="128.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-14">
+  <title>No contributions on November 26th.</title>
+</rect>
+  <rect x="252.0" y="142.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-14">
+  <title>No contributions on November 27th.</title>
+</rect>
+  <rect x="252.0" y="156.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-14">
+  <title>No contributions on November 28th.</title>
+</rect>
+  <rect x="252.0" y="170.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-14">
+  <title>No contributions on November 29th.</title>
+</rect>
+  <rect x="266.0" y="86.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-15">
+  <title>No contributions on November 30th.</title>
+</rect>
+  <rect x="266.0" y="100.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-15">
+  <title>No contributions on December 1st.</title>
+</rect>
+  <rect x="266.0" y="114.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-15">
+  <title>No contributions on December 2nd.</title>
+</rect>
+  <rect x="266.0" y="128.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-15">
+  <title>No contributions on December 3rd.</title>
+</rect>
+  <rect x="266.0" y="142.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-15">
+  <title>No contributions on December 4th.</title>
+</rect>
+  <rect x="266.0" y="156.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-15">
+  <title>No contributions on December 5th.</title>
+</rect>
+  <rect x="266.0" y="170.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-15">
+  <title>No contributions on December 6th.</title>
+</rect>
+  <rect x="280.0" y="86.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-16">
+  <title>No contributions on December 7th.</title>
+</rect>
+  <rect x="280.0" y="100.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-16">
+  <title>No contributions on December 8th.</title>
+</rect>
+  <rect x="280.0" y="114.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-16">
+  <title>No contributions on December 9th.</title>
+</rect>
+  <rect x="280.0" y="128.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-16">
+  <title>No contributions on December 10th.</title>
+</rect>
+  <rect x="280.0" y="142.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-16">
+  <title>No contributions on December 11th.</title>
+</rect>
+  <rect x="280.0" y="156.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-16">
+  <title>No contributions on December 12th.</title>
+</rect>
+  <rect x="280.0" y="170.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-16">
+  <title>No contributions on December 13th.</title>
+</rect>
+  <rect x="294.0" y="86.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-17">
+  <title>No contributions on December 14th.</title>
+</rect>
+  <rect x="294.0" y="100.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-17">
+  <title>No contributions on December 15th.</title>
+</rect>
+  <rect x="294.0" y="114.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-17">
+  <title>No contributions on December 16th.</title>
+</rect>
+  <rect x="294.0" y="128.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-17">
+  <title>No contributions on December 17th.</title>
+</rect>
+  <rect x="294.0" y="142.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-17">
+  <title>No contributions on December 18th.</title>
+</rect>
+  <rect x="294.0" y="156.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-17">
+  <title>No contributions on December 19th.</title>
+</rect>
+  <rect x="294.0" y="170.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-17">
+  <title>No contributions on December 20th.</title>
+</rect>
+  <rect x="308.0" y="86.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-18">
+  <title>No contributions on December 21st.</title>
+</rect>
+  <rect x="308.0" y="100.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-18">
+  <title>No contributions on December 22nd.</title>
+</rect>
+  <rect x="308.0" y="114.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-18">
+  <title>No contributions on December 23rd.</title>
+</rect>
+  <rect x="308.0" y="128.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-18">
+  <title>No contributions on December 24th.</title>
+</rect>
+  <rect x="308.0" y="142.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-18">
+  <title>No contributions on December 25th.</title>
+</rect>
+  <rect x="308.0" y="156.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-18">
+  <title>No contributions on December 26th.</title>
+</rect>
+  <rect x="308.0" y="170.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-18">
+  <title>No contributions on December 27th.</title>
+</rect>
+  <rect x="322.0" y="86.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-19">
+  <title>No contributions on December 28th.</title>
+</rect>
+  <rect x="322.0" y="100.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-19">
+  <title>No contributions on December 29th.</title>
+</rect>
+  <rect x="322.0" y="114.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-19">
+  <title>No contributions on December 30th.</title>
+</rect>
+  <rect x="322.0" y="128.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-19">
+  <title>No contributions on December 31st.</title>
+</rect>
+  <rect x="322.0" y="142.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-19">
+  <title>No contributions on January 1st.</title>
+</rect>
+  <rect x="322.0" y="156.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-19">
+  <title>No contributions on January 2nd.</title>
+</rect>
+  <rect x="322.0" y="170.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-19">
+  <title>No contributions on January 3rd.</title>
+</rect>
+  <rect x="336.0" y="86.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-20">
+  <title>No contributions on January 4th.</title>
+</rect>
+  <rect x="336.0" y="100.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-20">
+  <title>No contributions on January 5th.</title>
+</rect>
+  <rect x="336.0" y="114.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-20">
+  <title>No contributions on January 6th.</title>
+</rect>
+  <rect x="336.0" y="128.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-20">
+  <title>No contributions on January 7th.</title>
+</rect>
+  <rect x="336.0" y="142.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-20">
+  <title>No contributions on January 8th.</title>
+</rect>
+  <rect x="336.0" y="156.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-20">
+  <title>No contributions on January 9th.</title>
+</rect>
+  <rect x="336.0" y="170.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-20">
+  <title>No contributions on January 10th.</title>
+</rect>
+  <rect x="350.0" y="86.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-21">
+  <title>No contributions on January 11th.</title>
+</rect>
+  <rect x="350.0" y="100.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-21">
+  <title>No contributions on January 12th.</title>
+</rect>
+  <rect x="350.0" y="114.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-21">
+  <title>No contributions on January 13th.</title>
+</rect>
+  <rect x="350.0" y="128.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-21">
+  <title>No contributions on January 14th.</title>
+</rect>
+  <rect x="350.0" y="142.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-21">
+  <title>No contributions on January 15th.</title>
+</rect>
+  <rect x="350.0" y="156.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-21">
+  <title>No contributions on January 16th.</title>
+</rect>
+  <rect x="350.0" y="170.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-21">
+  <title>No contributions on January 17th.</title>
+</rect>
+  <rect x="364.0" y="86.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-22">
+  <title>No contributions on January 18th.</title>
+</rect>
+  <rect x="364.0" y="100.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-22">
+  <title>No contributions on January 19th.</title>
+</rect>
+  <rect x="364.0" y="114.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-22">
+  <title>No contributions on January 20th.</title>
+</rect>
+  <rect x="364.0" y="128.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-22">
+  <title>No contributions on January 21st.</title>
+</rect>
+  <rect x="364.0" y="142.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-22">
+  <title>No contributions on January 22nd.</title>
+</rect>
+  <rect x="364.0" y="156.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-22">
+  <title>No contributions on January 23rd.</title>
+</rect>
+  <rect x="364.0" y="170.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-22">
+  <title>No contributions on January 24th.</title>
+</rect>
+  <rect x="378.0" y="86.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-23">
+  <title>No contributions on January 25th.</title>
+</rect>
+  <rect x="378.0" y="100.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-23">
+  <title>No contributions on January 26th.</title>
+</rect>
+  <rect x="378.0" y="114.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-23">
+  <title>No contributions on January 27th.</title>
+</rect>
+  <rect x="378.0" y="128.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-23">
+  <title>No contributions on January 28th.</title>
+</rect>
+  <rect x="378.0" y="142.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-23">
+  <title>No contributions on January 29th.</title>
+</rect>
+  <rect x="378.0" y="156.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-23">
+  <title>No contributions on January 30th.</title>
+</rect>
+  <rect x="378.0" y="170.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-23">
+  <title>No contributions on January 31st.</title>
+</rect>
+  <rect x="392.0" y="86.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-24">
+  <title>No contributions on February 1st.</title>
+</rect>
+  <rect x="392.0" y="100.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-24">
+  <title>No contributions on February 2nd.</title>
+</rect>
+  <rect x="392.0" y="114.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-24">
+  <title>No contributions on February 3rd.</title>
+</rect>
+  <rect x="392.0" y="128.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-24">
+  <title>No contributions on February 4th.</title>
+</rect>
+  <rect x="392.0" y="142.0" width="10.5" height="10.5" rx="2.5" fill="#0e4429" stroke="#1b4d32" stroke-width="0.7" class="cal-cell col-24 cell-active">
+  <title>1 contribution on February 5th.</title>
+</rect>
+  <rect x="392.0" y="156.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-24">
+  <title>No contributions on February 6th.</title>
+</rect>
+  <rect x="392.0" y="170.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-24">
+  <title>No contributions on February 7th.</title>
+</rect>
+  <rect x="406.0" y="86.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-25">
+  <title>No contributions on February 8th.</title>
+</rect>
+  <rect x="406.0" y="100.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-25">
+  <title>No contributions on February 9th.</title>
+</rect>
+  <rect x="406.0" y="114.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-25">
+  <title>No contributions on February 10th.</title>
+</rect>
+  <rect x="406.0" y="128.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-25">
+  <title>No contributions on February 11th.</title>
+</rect>
+  <rect x="406.0" y="142.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-25">
+  <title>No contributions on February 12th.</title>
+</rect>
+  <rect x="406.0" y="156.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-25">
+  <title>No contributions on February 13th.</title>
+</rect>
+  <rect x="406.0" y="170.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-25">
+  <title>No contributions on February 14th.</title>
+</rect>
+  <rect x="420.0" y="86.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-26">
+  <title>No contributions on February 15th.</title>
+</rect>
+  <rect x="420.0" y="100.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-26">
+  <title>No contributions on February 16th.</title>
+</rect>
+  <rect x="420.0" y="114.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-26">
+  <title>No contributions on February 17th.</title>
+</rect>
+  <rect x="420.0" y="128.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-26">
+  <title>No contributions on February 18th.</title>
+</rect>
+  <rect x="420.0" y="142.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-26">
+  <title>No contributions on February 19th.</title>
+</rect>
+  <rect x="420.0" y="156.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-26">
+  <title>No contributions on February 20th.</title>
+</rect>
+  <rect x="420.0" y="170.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-26">
+  <title>No contributions on February 21st.</title>
+</rect>
+  <rect x="434.0" y="86.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-27">
+  <title>No contributions on February 22nd.</title>
+</rect>
+  <rect x="434.0" y="100.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-27">
+  <title>No contributions on February 23rd.</title>
+</rect>
+  <rect x="434.0" y="114.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-27">
+  <title>No contributions on February 24th.</title>
+</rect>
+  <rect x="434.0" y="128.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-27">
+  <title>No contributions on February 25th.</title>
+</rect>
+  <rect x="434.0" y="142.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-27">
+  <title>No contributions on February 26th.</title>
+</rect>
+  <rect x="434.0" y="156.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-27">
+  <title>No contributions on February 27th.</title>
+</rect>
+  <rect x="434.0" y="170.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-27">
+  <title>No contributions on February 28th.</title>
+</rect>
+  <rect x="448.0" y="86.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-28">
+  <title>No contributions on March 1st.</title>
+</rect>
+  <rect x="448.0" y="100.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-28">
+  <title>No contributions on March 2nd.</title>
+</rect>
+  <rect x="448.0" y="114.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-28">
+  <title>No contributions on March 3rd.</title>
+</rect>
+  <rect x="448.0" y="128.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-28">
+  <title>No contributions on March 4th.</title>
+</rect>
+  <rect x="448.0" y="142.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-28">
+  <title>No contributions on March 5th.</title>
+</rect>
+  <rect x="448.0" y="156.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-28">
+  <title>No contributions on March 6th.</title>
+</rect>
+  <rect x="448.0" y="170.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-28">
+  <title>No contributions on March 7th.</title>
+</rect>
+  <rect x="462.0" y="86.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-29">
+  <title>No contributions on March 8th.</title>
+</rect>
+  <rect x="462.0" y="100.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-29">
+  <title>No contributions on March 9th.</title>
+</rect>
+  <rect x="462.0" y="114.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-29">
+  <title>No contributions on March 10th.</title>
+</rect>
+  <rect x="462.0" y="128.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-29">
+  <title>No contributions on March 11th.</title>
+</rect>
+  <rect x="462.0" y="142.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-29">
+  <title>No contributions on March 12th.</title>
+</rect>
+  <rect x="462.0" y="156.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-29">
+  <title>No contributions on March 13th.</title>
+</rect>
+  <rect x="462.0" y="170.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-29">
+  <title>No contributions on March 14th.</title>
+</rect>
+  <rect x="476.0" y="86.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-30">
+  <title>No contributions on March 15th.</title>
+</rect>
+  <rect x="476.0" y="100.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-30">
+  <title>No contributions on March 16th.</title>
+</rect>
+  <rect x="476.0" y="114.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-30">
+  <title>No contributions on March 17th.</title>
+</rect>
+  <rect x="476.0" y="128.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-30">
+  <title>No contributions on March 18th.</title>
+</rect>
+  <rect x="476.0" y="142.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-30">
+  <title>No contributions on March 19th.</title>
+</rect>
+  <rect x="476.0" y="156.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-30">
+  <title>No contributions on March 20th.</title>
+</rect>
+  <rect x="476.0" y="170.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-30">
+  <title>No contributions on March 21st.</title>
+</rect>
+  <rect x="490.0" y="86.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-31">
+  <title>No contributions on March 22nd.</title>
+</rect>
+  <rect x="490.0" y="100.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-31">
+  <title>No contributions on March 23rd.</title>
+</rect>
+  <rect x="490.0" y="114.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-31">
+  <title>No contributions on March 24th.</title>
+</rect>
+  <rect x="490.0" y="128.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-31">
+  <title>No contributions on March 25th.</title>
+</rect>
+  <rect x="490.0" y="142.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-31">
+  <title>No contributions on March 26th.</title>
+</rect>
+  <rect x="490.0" y="156.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-31">
+  <title>No contributions on March 27th.</title>
+</rect>
+  <rect x="490.0" y="170.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-31">
+  <title>No contributions on March 28th.</title>
+</rect>
+  <rect x="504.0" y="86.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-32">
+  <title>No contributions on March 29th.</title>
+</rect>
+  <rect x="504.0" y="100.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-32">
+  <title>No contributions on March 30th.</title>
+</rect>
+  <rect x="504.0" y="114.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-32">
+  <title>No contributions on March 31st.</title>
+</rect>
+  <rect x="504.0" y="128.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-32">
+  <title>No contributions on April 1st.</title>
+</rect>
+  <rect x="504.0" y="142.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-32">
+  <title>No contributions on April 2nd.</title>
+</rect>
+  <rect x="504.0" y="156.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-32">
+  <title>No contributions on April 3rd.</title>
+</rect>
+  <rect x="504.0" y="170.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-32">
+  <title>No contributions on April 4th.</title>
+</rect>
+  <rect x="518.0" y="86.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-33">
+  <title>No contributions on April 5th.</title>
+</rect>
+  <rect x="518.0" y="100.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-33">
+  <title>No contributions on April 6th.</title>
+</rect>
+  <rect x="518.0" y="114.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-33">
+  <title>No contributions on April 7th.</title>
+</rect>
+  <rect x="518.0" y="128.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-33">
+  <title>No contributions on April 8th.</title>
+</rect>
+  <rect x="518.0" y="142.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-33">
+  <title>No contributions on April 9th.</title>
+</rect>
+  <rect x="518.0" y="156.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-33">
+  <title>No contributions on April 10th.</title>
+</rect>
+  <rect x="518.0" y="170.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-33">
+  <title>No contributions on April 11th.</title>
+</rect>
+  <rect x="532.0" y="86.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-34">
+  <title>No contributions on April 12th.</title>
+</rect>
+  <rect x="532.0" y="100.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-34">
+  <title>No contributions on April 13th.</title>
+</rect>
+  <rect x="532.0" y="114.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-34">
+  <title>No contributions on April 14th.</title>
+</rect>
+  <rect x="532.0" y="128.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-34">
+  <title>No contributions on April 15th.</title>
+</rect>
+  <rect x="532.0" y="142.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-34">
+  <title>No contributions on April 16th.</title>
+</rect>
+  <rect x="532.0" y="156.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-34">
+  <title>No contributions on April 17th.</title>
+</rect>
+  <rect x="532.0" y="170.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-34">
+  <title>No contributions on April 18th.</title>
+</rect>
+  <rect x="546.0" y="86.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-35">
+  <title>No contributions on April 19th.</title>
+</rect>
+  <rect x="546.0" y="100.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-35">
+  <title>No contributions on April 20th.</title>
+</rect>
+  <rect x="546.0" y="114.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-35">
+  <title>No contributions on April 21st.</title>
+</rect>
+  <rect x="546.0" y="128.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-35">
+  <title>No contributions on April 22nd.</title>
+</rect>
+  <rect x="546.0" y="142.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-35">
+  <title>No contributions on April 23rd.</title>
+</rect>
+  <rect x="546.0" y="156.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-35">
+  <title>No contributions on April 24th.</title>
+</rect>
+  <rect x="546.0" y="170.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-35">
+  <title>No contributions on April 25th.</title>
+</rect>
+  <rect x="560.0" y="86.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-36">
+  <title>No contributions on April 26th.</title>
+</rect>
+  <rect x="560.0" y="100.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-36">
+  <title>No contributions on April 27th.</title>
+</rect>
+  <rect x="560.0" y="114.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-36">
+  <title>No contributions on April 28th.</title>
+</rect>
+  <rect x="560.0" y="128.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-36">
+  <title>No contributions on April 29th.</title>
+</rect>
+  <rect x="560.0" y="142.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-36">
+  <title>No contributions on April 30th.</title>
+</rect>
+  <rect x="560.0" y="156.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-36">
+  <title>No contributions on May 1st.</title>
+</rect>
+  <rect x="560.0" y="170.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-36">
+  <title>No contributions on May 2nd.</title>
+</rect>
+  <rect x="574.0" y="86.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-37">
+  <title>No contributions on May 3rd.</title>
+</rect>
+  <rect x="574.0" y="100.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-37">
+  <title>No contributions on May 4th.</title>
+</rect>
+  <rect x="574.0" y="114.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-37">
+  <title>No contributions on May 5th.</title>
+</rect>
+  <rect x="574.0" y="128.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-37">
+  <title>No contributions on May 6th.</title>
+</rect>
+  <rect x="574.0" y="142.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-37">
+  <title>No contributions on May 7th.</title>
+</rect>
+  <rect x="574.0" y="156.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-37">
+  <title>No contributions on May 8th.</title>
+</rect>
+  <rect x="574.0" y="170.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-37">
+  <title>No contributions on May 9th.</title>
+</rect>
+  <rect x="588.0" y="86.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-38">
+  <title>No contributions on May 10th.</title>
+</rect>
+  <rect x="588.0" y="100.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-38">
+  <title>No contributions on May 11th.</title>
+</rect>
+  <rect x="588.0" y="114.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-38">
+  <title>No contributions on May 12th.</title>
+</rect>
+  <rect x="588.0" y="128.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-38">
+  <title>No contributions on May 13th.</title>
+</rect>
+  <rect x="588.0" y="142.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-38">
+  <title>No contributions on May 14th.</title>
+</rect>
+  <rect x="588.0" y="156.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-38">
+  <title>No contributions on May 15th.</title>
+</rect>
+  <rect x="588.0" y="170.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-38">
+  <title>No contributions on May 16th.</title>
+</rect>
+  <rect x="602.0" y="86.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-39">
+  <title>No contributions on May 17th.</title>
+</rect>
+  <rect x="602.0" y="100.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-39">
+  <title>No contributions on May 18th.</title>
+</rect>
+  <rect x="602.0" y="114.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-39">
+  <title>No contributions on May 19th.</title>
+</rect>
+  <rect x="602.0" y="128.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-39">
+  <title>No contributions on May 20th.</title>
+</rect>
+  <rect x="602.0" y="142.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-39">
+  <title>No contributions on May 21st.</title>
+</rect>
+  <rect x="602.0" y="156.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-39">
+  <title>No contributions on May 22nd.</title>
+</rect>
+  <rect x="602.0" y="170.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-39">
+  <title>No contributions on May 23rd.</title>
+</rect>
+  <rect x="616.0" y="86.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-40">
+  <title>No contributions on May 24th.</title>
+</rect>
+  <rect x="616.0" y="100.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-40">
+  <title>No contributions on May 25th.</title>
+</rect>
+  <rect x="616.0" y="114.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-40">
+  <title>No contributions on May 26th.</title>
+</rect>
+  <rect x="616.0" y="128.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-40">
+  <title>No contributions on May 27th.</title>
+</rect>
+  <rect x="616.0" y="142.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-40">
+  <title>No contributions on May 28th.</title>
+</rect>
+  <rect x="616.0" y="156.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-40">
+  <title>No contributions on May 29th.</title>
+</rect>
+  <rect x="616.0" y="170.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-40">
+  <title>No contributions on May 30th.</title>
+</rect>
+  <rect x="630.0" y="86.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-41">
+  <title>No contributions on May 31st.</title>
+</rect>
+  <rect x="630.0" y="100.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-41">
+  <title>No contributions on June 1st.</title>
+</rect>
+  <rect x="630.0" y="114.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-41">
+  <title>No contributions on June 2nd.</title>
+</rect>
+  <rect x="630.0" y="128.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-41">
+  <title>No contributions on June 3rd.</title>
+</rect>
+  <rect x="630.0" y="142.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-41">
+  <title>No contributions on June 4th.</title>
+</rect>
+  <rect x="630.0" y="156.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-41">
+  <title>No contributions on June 5th.</title>
+</rect>
+  <rect x="630.0" y="170.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-41">
+  <title>No contributions on June 6th.</title>
+</rect>
+  <rect x="644.0" y="86.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-42">
+  <title>No contributions on June 7th.</title>
+</rect>
+  <rect x="644.0" y="100.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-42">
+  <title>No contributions on June 8th.</title>
+</rect>
+  <rect x="644.0" y="114.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-42">
+  <title>No contributions on June 9th.</title>
+</rect>
+  <rect x="644.0" y="128.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-42">
+  <title>No contributions on June 10th.</title>
+</rect>
+  <rect x="644.0" y="142.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-42">
+  <title>No contributions on June 11th.</title>
+</rect>
+  <rect x="644.0" y="156.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-42">
+  <title>No contributions on June 12th.</title>
+</rect>
+  <rect x="644.0" y="170.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-42">
+  <title>No contributions on June 13th.</title>
+</rect>
+  <rect x="658.0" y="86.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-43">
+  <title>No contributions on June 14th.</title>
+</rect>
+  <rect x="658.0" y="100.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-43">
+  <title>No contributions on June 15th.</title>
+</rect>
+  <rect x="658.0" y="114.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-43">
+  <title>No contributions on June 16th.</title>
+</rect>
+  <rect x="658.0" y="128.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-43">
+  <title>No contributions on June 17th.</title>
+</rect>
+  <rect x="658.0" y="142.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-43">
+  <title>No contributions on June 18th.</title>
+</rect>
+  <rect x="658.0" y="156.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-43">
+  <title>No contributions on June 19th.</title>
+</rect>
+  <rect x="658.0" y="170.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-43">
+  <title>No contributions on June 20th.</title>
+</rect>
+  <rect x="672.0" y="86.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-44">
+  <title>No contributions on June 21st.</title>
+</rect>
+  <rect x="672.0" y="100.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-44">
+  <title>No contributions on June 22nd.</title>
+</rect>
+  <rect x="672.0" y="114.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-44">
+  <title>No contributions on June 23rd.</title>
+</rect>
+  <rect x="672.0" y="128.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-44">
+  <title>No contributions on June 24th.</title>
+</rect>
+  <rect x="672.0" y="142.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-44">
+  <title>No contributions on June 25th.</title>
+</rect>
+  <rect x="672.0" y="156.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-44">
+  <title>No contributions on June 26th.</title>
+</rect>
+  <rect x="672.0" y="170.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-44">
+  <title>No contributions on June 27th.</title>
+</rect>
+  <rect x="686.0" y="86.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-45">
+  <title>No contributions on June 28th.</title>
+</rect>
+  <rect x="686.0" y="100.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-45">
+  <title>No contributions on June 29th.</title>
+</rect>
+  <rect x="686.0" y="114.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-45">
+  <title>No contributions on June 30th.</title>
+</rect>
+  <rect x="686.0" y="128.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-45">
+  <title>No contributions on July 1st.</title>
+</rect>
+  <rect x="686.0" y="142.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-45">
+  <title>No contributions on July 2nd.</title>
+</rect>
+  <rect x="686.0" y="156.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-45">
+  <title>No contributions on July 3rd.</title>
+</rect>
+  <rect x="686.0" y="170.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-45">
+  <title>No contributions on July 4th.</title>
+</rect>
+  <rect x="700.0" y="86.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-46">
+  <title>No contributions on July 5th.</title>
+</rect>
+  <rect x="700.0" y="100.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-46">
+  <title>No contributions on July 6th.</title>
+</rect>
+  <rect x="700.0" y="114.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-46">
+  <title>No contributions on July 7th.</title>
+</rect>
+  <rect x="700.0" y="128.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-46">
+  <title>No contributions on July 8th.</title>
+</rect>
+  <rect x="700.0" y="142.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-46">
+  <title>No contributions on July 9th.</title>
+</rect>
+  <rect x="700.0" y="156.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-46">
+  <title>No contributions on July 10th.</title>
+</rect>
+  <rect x="700.0" y="170.0" width="10.5" height="10.5" rx="2.5" fill="#0e4429" stroke="#1b4d32" stroke-width="0.7" class="cal-cell col-46 cell-active">
+  <title>1 contribution on July 11th.</title>
+</rect>
+  <rect x="714.0" y="86.0" width="10.5" height="10.5" rx="2.5" fill="#006d32" stroke="#197c3f" stroke-width="0.7" class="cal-cell col-47 cell-active">
+  <title>3 contributions on July 12th.</title>
+</rect>
+  <rect x="714.0" y="100.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-47">
+  <title>No contributions on July 13th.</title>
+</rect>
+  <rect x="714.0" y="114.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-47">
+  <title>No contributions on July 14th.</title>
+</rect>
+  <rect x="714.0" y="128.0" width="10.5" height="10.5" rx="2.5" fill="#0e4429" stroke="#1b4d32" stroke-width="0.7" class="cal-cell col-47 cell-active">
+  <title>1 contribution on July 15th.</title>
+</rect>
+  <rect x="714.0" y="142.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-47">
+  <title>No contributions on July 16th.</title>
+</rect>
+  <rect x="714.0" y="156.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-47">
+  <title>No contributions on July 17th.</title>
+</rect>
+  <rect x="714.0" y="170.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-47">
+  <title>No contributions on July 18th.</title>
+</rect>
+  <rect x="728.0" y="86.0" width="10.5" height="10.5" rx="2.5" fill="#0e4429" stroke="#1b4d32" stroke-width="0.7" class="cal-cell col-48 cell-active">
+  <title>1 contribution on July 19th.</title>
+</rect>
+  <rect x="728.0" y="100.0" width="10.5" height="10.5" rx="2.5" fill="#39d353" stroke="#56e66e" stroke-width="0.7" class="cal-cell col-48 cell-active">
+  <title>6 contributions on July 20th.</title>
+</rect>
+  <rect x="728.0" y="114.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-48">
+  <title>No contributions on July 21st.</title>
+</rect>
+  <rect x="728.0" y="128.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-48">
+  <title>No contributions on July 22nd.</title>
+</rect>
+  <rect x="728.0" y="142.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-48">
+  <title>No contributions on July 23rd.</title>
+</rect>
+  <rect x="728.0" y="156.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-48">
+  <title>No contributions on July 24th.</title>
+</rect>
+  <rect x="728.0" y="170.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-48">
+  <title>No contributions on July 25th.</title>
+</rect>
+  <rect x="742.0" y="86.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-49">
+  <title>No contributions on July 26th.</title>
+</rect>
+  <rect x="742.0" y="100.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-49">
+  <title>No contributions on July 27th.</title>
+</rect>
+  <rect x="742.0" y="114.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-49">
+  <title>No contributions on July 28th.</title>
+</rect>
+  <rect x="742.0" y="128.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-49">
+  <title>No contributions on July 29th.</title>
+</rect>
+  <rect x="742.0" y="142.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-49">
+  <title>No contributions on July 30th.</title>
+</rect>
+  <rect x="742.0" y="156.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-49">
+  <title>No contributions on July 31st.</title>
+</rect>
+  <rect x="742.0" y="170.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-49">
+  <title>No contributions on August 1st.</title>
+</rect>
+  <rect x="756.0" y="86.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-50">
+  <title>No contributions on August 2nd.</title>
+</rect>
+  <rect x="756.0" y="100.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-50">
+  <title>No contributions on August 3rd.</title>
+</rect>
+  <rect x="756.0" y="114.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-50">
+  <title>No contributions on August 4th.</title>
+</rect>
+  <rect x="756.0" y="128.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-50">
+  <title>No contributions on August 5th.</title>
+</rect>
+  <rect x="756.0" y="142.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-50">
+  <title>No contributions on August 6th.</title>
+</rect>
+  <rect x="756.0" y="156.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-50">
+  <title>No contributions on August 7th.</title>
+</rect>
+  <rect x="756.0" y="170.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-50">
+  <title>No contributions on August 8th.</title>
+</rect>
+  <rect x="770.0" y="86.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-51">
+  <title>No contributions on August 9th.</title>
+</rect>
+  <rect x="770.0" y="100.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-51">
+  <title>No contributions on August 10th.</title>
+</rect>
+  <rect x="770.0" y="114.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-51">
+  <title>No contributions on August 11th.</title>
+</rect>
+  <rect x="770.0" y="128.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-51">
+  <title>No contributions on August 12th.</title>
+</rect>
+  <rect x="770.0" y="142.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-51">
+  <title>No contributions on August 13th.</title>
+</rect>
+  <rect x="770.0" y="156.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-51">
+  <title>No contributions on August 14th.</title>
+</rect>
+  <rect x="770.0" y="170.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-51">
+  <title>No contributions on August 15th.</title>
+</rect>
+  <rect x="784.0" y="86.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-52">
+  <title>No contributions on August 16th.</title>
+</rect>
+  <rect x="784.0" y="100.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-52">
+  <title>No contributions on August 17th.</title>
+</rect>
+
+  <!-- Footer Info & Legend -->
+  <g transform="translate(56, 210)">
+    <text x="0" y="0" class="legend-text" fill="#484f58">Live data synced directly from public GitHub profile • No external tokens</text>
+  </g>
+
+  <g>
+    <text x="700" y="210" class="legend-text" text-anchor="end">Less</text>
+    <rect x="730" y="201" width="10.5" height="10.5" rx="2" fill="#161b22" stroke="#21262d" stroke-width="0.7" />
+    <rect x="745" y="201" width="10.5" height="10.5" rx="2" fill="#0e4429" stroke="#1b4d32" stroke-width="0.7" />
+    <rect x="760" y="201" width="10.5" height="10.5" rx="2" fill="#006d32" stroke="#197c3f" stroke-width="0.7" />
+    <rect x="775" y="201" width="10.5" height="10.5" rx="2" fill="#26a641" stroke="#2ebc4f" stroke-width="0.7" />
+    <rect x="790" y="201" width="10.5" height="10.5" rx="2" fill="#39d353" stroke="#56e66e" stroke-width="0.7" />
+    <text x="812" y="210" class="legend-text">More</text>
+  </g>
+</svg>

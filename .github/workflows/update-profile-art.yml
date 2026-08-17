@@ -1,0 +1,56 @@
+﻿name: Update Profile Art & Heatmap
+
+on:
+  schedule:
+    # Runs daily at 00:00 UTC
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - master
+    paths:
+      - 'scripts/**'
+      - 'data/profile_data.json'
+      - 'assets/avatar.png'
+      - 'build.py'
+      - 'requirements.txt'
+
+permissions:
+  contents: write
+
+jobs:
+  refresh-profile-art:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run Profile Art & Heatmap Pipeline
+        run: |
+          python build.py
+
+      - name: Commit and push updated assets
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/ascii_art.svg assets/neofetch.svg assets/contribution_heatmap.svg data/contributions.json
+          if git diff --staged --quiet; then
+            echo "No changes detected in generated assets."
+          else
+            git commit -m "chore(art): refresh contribution heatmap & profile SVGs [skip ci]"
+            git push
+          fi

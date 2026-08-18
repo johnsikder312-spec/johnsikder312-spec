@@ -166,15 +166,15 @@
   <g transform="translate(450, 12)">
     <!-- Total Contributions -->
     <rect x="0" y="0" width="130" height="20" rx="4" fill="#238636" fill-opacity="0.2" stroke="#238636" stroke-width="0.8" />
-    <text x="65" y="14" text-anchor="middle" class="stat-pill" fill="#3fb950">Contributions: 13</text>
+    <text x="65" y="14" text-anchor="middle" class="stat-pill" fill="#3fb950">Contributions: 15</text>
 
     <!-- Active Days -->
     <rect x="138" y="0" width="105" height="20" rx="4" fill="#1f6feb" fill-opacity="0.2" stroke="#1f6feb" stroke-width="0.8" />
-    <text x="190" y="14" text-anchor="middle" class="stat-pill" fill="#58a6ff">Active: 6d</text>
+    <text x="190" y="14" text-anchor="middle" class="stat-pill" fill="#58a6ff">Active: 8d</text>
 
     <!-- Max Streak -->
     <rect x="251" y="0" width="165" height="20" rx="4" fill="#a371f7" fill-opacity="0.2" stroke="#a371f7" stroke-width="0.8" />
-    <text x="333" y="14" text-anchor="middle" class="stat-pill" fill="#d2a8ff">Max Streak: 2d | Cur: 0d</text>
+    <text x="333" y="14" text-anchor="middle" class="stat-pill" fill="#d2a8ff">Max Streak: 2d | Cur: 2d</text>
   </g>
 
   <!-- Month Labels -->
@@ -1292,8 +1292,11 @@
   <rect x="784.0" y="86.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-52">
   <title>No contributions on August 16th.</title>
 </rect>
-  <rect x="784.0" y="100.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-52">
-  <title>No contributions on August 17th.</title>
+  <rect x="784.0" y="100.0" width="10.5" height="10.5" rx="2.5" fill="#0e4429" stroke="#1b4d32" stroke-width="0.7" class="cal-cell col-52 cell-active">
+  <title>1 contribution on August 17th.</title>
+</rect>
+  <rect x="784.0" y="114.0" width="10.5" height="10.5" rx="2.5" fill="#0e4429" stroke="#1b4d32" stroke-width="0.7" class="cal-cell col-52 cell-active">
+  <title>1 contribution on August 18th.</title>
 </rect>
 
   <!-- Footer Info & Legend -->

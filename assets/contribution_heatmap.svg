@@ -1295,6 +1295,9 @@
   <rect x="784.0" y="100.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-52">
   <title>No contributions on August 24th.</title>
 </rect>
+  <rect x="784.0" y="114.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-52">
+  <title>No contributions on August 25th.</title>
+</rect>
 
   <!-- Footer Info & Legend -->
   <g transform="translate(56, 210)">

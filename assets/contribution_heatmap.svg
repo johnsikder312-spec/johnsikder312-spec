@@ -166,15 +166,15 @@
   <g transform="translate(450, 12)">
     <!-- Total Contributions -->
     <rect x="0" y="0" width="130" height="20" rx="4" fill="#238636" fill-opacity="0.2" stroke="#238636" stroke-width="0.8" />
-    <text x="65" y="14" text-anchor="middle" class="stat-pill" fill="#3fb950">Contributions: 19</text>
+    <text x="65" y="14" text-anchor="middle" class="stat-pill" fill="#3fb950">Contributions: 37</text>
 
     <!-- Active Days -->
     <rect x="138" y="0" width="105" height="20" rx="4" fill="#1f6feb" fill-opacity="0.2" stroke="#1f6feb" stroke-width="0.8" />
-    <text x="190" y="14" text-anchor="middle" class="stat-pill" fill="#58a6ff">Active: 10d</text>
+    <text x="190" y="14" text-anchor="middle" class="stat-pill" fill="#58a6ff">Active: 11d</text>
 
     <!-- Max Streak -->
     <rect x="251" y="0" width="165" height="20" rx="4" fill="#a371f7" fill-opacity="0.2" stroke="#a371f7" stroke-width="0.8" />
-    <text x="333" y="14" text-anchor="middle" class="stat-pill" fill="#d2a8ff">Max Streak: 2d | Cur: 0d</text>
+    <text x="333" y="14" text-anchor="middle" class="stat-pill" fill="#d2a8ff">Max Streak: 2d | Cur: 1d</text>
   </g>
 
   <!-- Month Labels -->
@@ -651,7 +651,7 @@
   <rect x="350.0" y="128.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-21">
   <title>No contributions on February 4th.</title>
 </rect>
-  <rect x="350.0" y="142.0" width="10.5" height="10.5" rx="2.5" fill="#0e4429" stroke="#1b4d32" stroke-width="0.7" class="cal-cell col-21 cell-active">
+  <rect x="350.0" y="142.0" width="10.5" height="10.5" rx="2.5" fill="#006d32" stroke="#197c3f" stroke-width="0.7" class="cal-cell col-21 cell-active">
   <title>1 contribution on February 5th.</title>
 </rect>
   <rect x="350.0" y="156.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-21">
@@ -1119,10 +1119,10 @@
   <rect x="658.0" y="156.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-43">
   <title>No contributions on July 10th.</title>
 </rect>
-  <rect x="658.0" y="170.0" width="10.5" height="10.5" rx="2.5" fill="#0e4429" stroke="#1b4d32" stroke-width="0.7" class="cal-cell col-43 cell-active">
+  <rect x="658.0" y="170.0" width="10.5" height="10.5" rx="2.5" fill="#006d32" stroke="#197c3f" stroke-width="0.7" class="cal-cell col-43 cell-active">
   <title>1 contribution on July 11th.</title>
 </rect>
-  <rect x="672.0" y="86.0" width="10.5" height="10.5" rx="2.5" fill="#006d32" stroke="#197c3f" stroke-width="0.7" class="cal-cell col-44 cell-active">
+  <rect x="672.0" y="86.0" width="10.5" height="10.5" rx="2.5" fill="#39d353" stroke="#56e66e" stroke-width="0.7" class="cal-cell col-44 cell-active">
   <title>3 contributions on July 12th.</title>
 </rect>
   <rect x="672.0" y="100.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-44">
@@ -1131,7 +1131,7 @@
   <rect x="672.0" y="114.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-44">
   <title>No contributions on July 14th.</title>
 </rect>
-  <rect x="672.0" y="128.0" width="10.5" height="10.5" rx="2.5" fill="#0e4429" stroke="#1b4d32" stroke-width="0.7" class="cal-cell col-44 cell-active">
+  <rect x="672.0" y="128.0" width="10.5" height="10.5" rx="2.5" fill="#006d32" stroke="#197c3f" stroke-width="0.7" class="cal-cell col-44 cell-active">
   <title>1 contribution on July 15th.</title>
 </rect>
   <rect x="672.0" y="142.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-44">
@@ -1143,7 +1143,7 @@
   <rect x="672.0" y="170.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-44">
   <title>No contributions on July 18th.</title>
 </rect>
-  <rect x="686.0" y="86.0" width="10.5" height="10.5" rx="2.5" fill="#0e4429" stroke="#1b4d32" stroke-width="0.7" class="cal-cell col-45 cell-active">
+  <rect x="686.0" y="86.0" width="10.5" height="10.5" rx="2.5" fill="#006d32" stroke="#197c3f" stroke-width="0.7" class="cal-cell col-45 cell-active">
   <title>1 contribution on July 19th.</title>
 </rect>
   <rect x="686.0" y="100.0" width="10.5" height="10.5" rx="2.5" fill="#39d353" stroke="#56e66e" stroke-width="0.7" class="cal-cell col-45 cell-active">
@@ -1230,10 +1230,10 @@
   <rect x="742.0" y="86.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-49">
   <title>No contributions on August 16th.</title>
 </rect>
-  <rect x="742.0" y="100.0" width="10.5" height="10.5" rx="2.5" fill="#0e4429" stroke="#1b4d32" stroke-width="0.7" class="cal-cell col-49 cell-active">
+  <rect x="742.0" y="100.0" width="10.5" height="10.5" rx="2.5" fill="#006d32" stroke="#197c3f" stroke-width="0.7" class="cal-cell col-49 cell-active">
   <title>1 contribution on August 17th.</title>
 </rect>
-  <rect x="742.0" y="114.0" width="10.5" height="10.5" rx="2.5" fill="#0e4429" stroke="#1b4d32" stroke-width="0.7" class="cal-cell col-49 cell-active">
+  <rect x="742.0" y="114.0" width="10.5" height="10.5" rx="2.5" fill="#006d32" stroke="#197c3f" stroke-width="0.7" class="cal-cell col-49 cell-active">
   <title>1 contribution on August 18th.</title>
 </rect>
   <rect x="742.0" y="128.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-49">
@@ -1269,10 +1269,10 @@
   <rect x="756.0" y="170.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-50">
   <title>No contributions on August 29th.</title>
 </rect>
-  <rect x="770.0" y="86.0" width="10.5" height="10.5" rx="2.5" fill="#006d32" stroke="#197c3f" stroke-width="0.7" class="cal-cell col-51 cell-active">
+  <rect x="770.0" y="86.0" width="10.5" height="10.5" rx="2.5" fill="#26a641" stroke="#2ebc4f" stroke-width="0.7" class="cal-cell col-51 cell-active">
   <title>2 contributions on August 30th.</title>
 </rect>
-  <rect x="770.0" y="100.0" width="10.5" height="10.5" rx="2.5" fill="#006d32" stroke="#197c3f" stroke-width="0.7" class="cal-cell col-51 cell-active">
+  <rect x="770.0" y="100.0" width="10.5" height="10.5" rx="2.5" fill="#26a641" stroke="#2ebc4f" stroke-width="0.7" class="cal-cell col-51 cell-active">
   <title>2 contributions on August 31st.</title>
 </rect>
   <rect x="770.0" y="114.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-51">
@@ -1290,8 +1290,11 @@
   <rect x="770.0" y="170.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-51">
   <title>No contributions on September 5th.</title>
 </rect>
-  <rect x="784.0" y="86.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-52">
-  <title>No contributions on September 6th.</title>
+  <rect x="784.0" y="86.0" width="10.5" height="10.5" rx="2.5" fill="#39d353" stroke="#56e66e" stroke-width="0.7" class="cal-cell col-52 cell-active">
+  <title>18 contributions on September 6th.</title>
+</rect>
+  <rect x="784.0" y="100.0" width="10.5" height="10.5" rx="2.5" fill="#161b22" stroke="#21262d" stroke-width="0.7" class="cal-cell col-52">
+  <title>No contributions on September 7th.</title>
 </rect>
 
   <!-- Footer Info & Legend -->

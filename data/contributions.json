@@ -1,82 +1,12 @@
 {
   "username": "johnsikder312-spec",
-  "fetched_at": "2026-09-26T03:18:03.779561+00:00",
+  "fetched_at": "2026-09-27T03:26:02.081648+00:00",
   "total_contributions": 40,
   "active_days": 12,
   "longest_streak": 2,
   "current_streak": 0,
-  "total_days_tracked": 371,
+  "total_days_tracked": 365,
   "days": [
-    {
-      "date": "2025-09-21",
-      "count": 0,
-      "level": 0,
-      "weekday": 0,
-      "tooltip": "No contributions on September 21st.",
-      "year": 2025,
-      "month": 9,
-      "day": 21
-    },
-    {
-      "date": "2025-09-22",
-      "count": 0,
-      "level": 0,
-      "weekday": 1,
-      "tooltip": "No contributions on September 22nd.",
-      "year": 2025,
-      "month": 9,
-      "day": 22
-    },
-    {
-      "date": "2025-09-23",
-      "count": 0,
-      "level": 0,
-      "weekday": 2,
-      "tooltip": "No contributions on September 23rd.",
-      "year": 2025,
-      "month": 9,
-      "day": 23
-    },
-    {
-      "date": "2025-09-24",
-      "count": 0,
-      "level": 0,
-      "weekday": 3,
-      "tooltip": "No contributions on September 24th.",
-      "year": 2025,
-      "month": 9,
-      "day": 24
-    },
-    {
-      "date": "2025-09-25",
-      "count": 0,
-      "level": 0,
-      "weekday": 4,
-      "tooltip": "No contributions on September 25th.",
-      "year": 2025,
-      "month": 9,
-      "day": 25
-    },
-    {
-      "date": "2025-09-26",
-      "count": 0,
-      "level": 0,
-      "weekday": 5,
-      "tooltip": "No contributions on September 26th.",
-      "year": 2025,
-      "month": 9,
-      "day": 26
-    },
-    {
-      "date": "2025-09-27",
-      "count": 0,
-      "level": 0,
-      "weekday": 6,
-      "tooltip": "No contributions on September 27th.",
-      "year": 2025,
-      "month": 9,
-      "day": 27
-    },
     {
       "date": "2025-09-28",
       "count": 0,
@@ -3716,81 +3646,19 @@
       "year": 2026,
       "month": 9,
       "day": 26
+    },
+    {
+      "date": "2026-09-27",
+      "count": 0,
+      "level": 0,
+      "weekday": 0,
+      "tooltip": "No contributions on September 27th.",
+      "year": 2026,
+      "month": 9,
+      "day": 27
     }
   ],
   "weeks": [
-    [
-      {
-        "date": "2025-09-21",
-        "count": 0,
-        "level": 0,
-        "weekday": 0,
-        "tooltip": "No contributions on September 21st.",
-        "year": 2025,
-        "month": 9,
-        "day": 21
-      },
-      {
-        "date": "2025-09-22",
-        "count": 0,
-        "level": 0,
-        "weekday": 1,
-        "tooltip": "No contributions on September 22nd.",
-        "year": 2025,
-        "month": 9,
-        "day": 22
-      },
-      {
-        "date": "2025-09-23",
-        "count": 0,
-        "level": 0,
-        "weekday": 2,
-        "tooltip": "No contributions on September 23rd.",
-        "year": 2025,
-        "month": 9,
-        "day": 23
-      },
-      {
-        "date": "2025-09-24",
-        "count": 0,
-        "level": 0,
-        "weekday": 3,
-        "tooltip": "No contributions on September 24th.",
-        "year": 2025,
-        "month": 9,
-        "day": 24
-      },
-      {
-        "date": "2025-09-25",
-        "count": 0,
-        "level": 0,
-        "weekday": 4,
-        "tooltip": "No contributions on September 25th.",
-        "year": 2025,
-        "month": 9,
-        "day": 25
-      },
-      {
-        "date": "2025-09-26",
-        "count": 0,
-        "level": 0,
-        "weekday": 5,
-        "tooltip": "No contributions on September 26th.",
-        "year": 2025,
-        "month": 9,
-        "day": 26
-      },
-      {
-        "date": "2025-09-27",
-        "count": 0,
-        "level": 0,
-        "weekday": 6,
-        "tooltip": "No contributions on September 27th.",
-        "year": 2025,
-        "month": 9,
-        "day": 27
-      }
-    ],
     [
       {
         "date": "2025-09-28",
@@ -7534,55 +7402,73 @@
         "month": 9,
         "day": 26
       }
+    ],
+    [
+      {
+        "date": "2026-09-27",
+        "count": 0,
+        "level": 0,
+        "weekday": 0,
+        "tooltip": "No contributions on September 27th.",
+        "year": 2026,
+        "month": 9,
+        "day": 27
+      },
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
     ]
   ],
   "month_labels": [
     {
-      "col": 1,
+      "col": 0,
       "name": "Oct"
     },
     {
-      "col": 5,
+      "col": 4,
       "name": "Nov"
     },
     {
-      "col": 10,
+      "col": 9,
       "name": "Dec"
     },
     {
-      "col": 14,
+      "col": 13,
       "name": "Jan"
     },
     {
-      "col": 19,
+      "col": 18,
       "name": "Feb"
     },
     {
-      "col": 23,
+      "col": 22,
       "name": "Mar"
     },
     {
-      "col": 27,
+      "col": 26,
       "name": "Apr"
     },
     {
-      "col": 31,
+      "col": 30,
       "name": "May"
     },
     {
-      "col": 36,
+      "col": 35,
       "name": "Jun"
     },
     {
-      "col": 40,
+      "col": 39,
       "name": "Jul"
     },
     {
-      "col": 44,
+      "col": 43,
       "name": "Aug"
     },
     {
-      "col": 49,
+      "col": 48,
       "name": "Sep"
     }
   ]
